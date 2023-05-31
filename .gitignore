@@ -1,0 +1,12 @@
+# JetBrains IDEs
+.idea
+
+# Node Modules
+node_modules
+lib/node_modules
+playground/node_modules
+
+# Compiled
+dist
+lib/dist
+playground/dist
