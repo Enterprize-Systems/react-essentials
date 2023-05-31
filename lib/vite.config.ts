@@ -12,7 +12,7 @@ export default defineConfig({
             entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'Enterprize React Essentials',
             formats: ['es', 'umd'],
-            fileName: 'react-essentials'
+            fileName: 'index'
         },
         rollupOptions: {
             external: ['react', 'react-dom'],
@@ -27,6 +27,10 @@ export default defineConfig({
     plugins: [
         checker({ typescript: { tsconfigPath: 'tsconfig.json' } }),
         react(),
-        dts({ insertTypesEntry: true, tsConfigFilePath: 'tsconfig.json' })
+        dts({
+            insertTypesEntry: true,
+            rollupTypes: true,
+            tsConfigFilePath: 'tsconfig.json'
+        })
     ]
 });

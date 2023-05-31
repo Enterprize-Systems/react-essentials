@@ -13,13 +13,14 @@
     "license": "MIT",
     "version": "1.0.0",
     "type": "module",
-    "main": "./dist/react-essentials.umd.cjs",
-    "module": "./dist/react-essentials.js",
+    "main": "./dist/index.umd.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/react-essentials.js",
-            "require": "./dist/react-essentials.umd.cjs",
-            "types": "./dist/react-essentials.d.ts"
+            "import": "./dist/index.js",
+            "require": "./dist/index.umd.cjs",
+            "types": "./dist/index.d.ts"
         }
     },
     "scripts": {
