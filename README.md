@@ -12,8 +12,16 @@ npm install @enterprize/react-essentials
 
 ## Usage
 
-```tsx
+Work in progress...
 
+Clone the project and run the playground:
+```bash
+cd lib
+pnpm install
+pnpm run build
+
+cd ../playground
+pnpm run dev
 ```
 
 ## License
