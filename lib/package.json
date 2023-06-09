@@ -9,9 +9,13 @@
         "Declarative"
     ],
     "author": "Enterprize Systems <giancarlo.dallemole1995@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Enterprize-Systems/react-essentials"
+    },
     "private": false,
     "license": "MIT",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "type": "module",
     "main": "./dist/index.umd.cjs",
     "module": "./dist/index.js",
