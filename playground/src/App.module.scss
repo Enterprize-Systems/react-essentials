@@ -80,5 +80,19 @@
             margin-left: 1.5rem;
             list-style: disc;
         }
+
+        .baseClass {
+            font-size: 2rem;
+        }
+
+        .class1 {
+            color: red;
+        }
+        .class2 {
+            color: green;
+        }
+        .class3 {
+            color: blue;
+        }
     }
 }

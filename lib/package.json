@@ -11,7 +11,7 @@
     "author": "Enterprize Systems <giancarlo.dallemole1995@gmail.com>",
     "private": false,
     "license": "MIT",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "type": "module",
     "main": "./dist/index.umd.cjs",
     "module": "./dist/index.js",

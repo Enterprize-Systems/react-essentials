@@ -14,7 +14,11 @@ export const SwitchCaseDefault: FC<SwitchCaseDefaultProps> = props => {
     );
 };
 
-export type SwitchCaseDefaultProps = {
+/**
+ * {@link SwitchCaseDefault} component properties interface definition.
+ * @since 1.0.0
+ */
+export interface SwitchCaseDefaultProps {
     /**
      * The children or factory.
      */

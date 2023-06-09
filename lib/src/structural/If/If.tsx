@@ -22,7 +22,11 @@ export const If: FC<IfProps> = props => {
     //#endregion
 };
 
-export type IfProps = {
+/**
+ * {@link If} component properties interface definition.
+ * @since 1.0.0
+ */
+export interface IfProps {
     /**
      * The children or factory.
      */

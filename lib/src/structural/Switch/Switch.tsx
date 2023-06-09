@@ -34,14 +34,14 @@ export const Switch: FC<SwitchProps> = props => {
      * {@link SwitchProps.children}
      */
     const children = Array.isArray(props.children) ? props.children : [props.children];
+    //#endregion
 
+    //#region Render
     //if no children, nothing to render
     if (children.length === 0) {
         return null;
     }
-    //#endregion
 
-    //#region Render
     /**
      * If a {@link SwitchCaseDefault} is defined and no {@link SwitchCase} is match, will render it/
      */
@@ -85,7 +85,11 @@ export const Switch: FC<SwitchProps> = props => {
     //#endregion
 };
 
-export type SwitchProps = {
+/**
+ * {@link Switch} component properties interface definition.
+ * @since 1.0.0
+ */
+export interface SwitchProps {
     /**
      * Expression to evaluate.
      */
