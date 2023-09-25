@@ -42,20 +42,20 @@ export const Switch: FC<SwitchProps> = props => {
         return null;
     }
 
-    /**
-     * If a {@link SwitchCaseDefault} is defined and no {@link SwitchCase} is match, will render it/
-     */
+    // If a {@link SwitchCaseDefault} is defined and no {@link SwitchCase} is match, will render it/
     const switchCaseDefaultToRender: null | ReactElement<void, typeof SwitchCaseDefault> =
         children[children.length - 1]!.type === SwitchCaseDefault
             ? children[children.length - 1] as ReactElement<void, typeof SwitchCaseDefault>
             : null;
-    /**
-     * If a {@link SwitchCase} condition matches, will render it.
-     */
+     // If a {@link SwitchCase} condition matches, will render it.
     let switchCaseToRender: null | ReactElement<SwitchCaseProps, typeof SwitchCase> = null;
 
+    const length: number = switchCaseToRender != null
+        ? children.length - 1
+        : children.length;
+
     switchCaseLoop:
-    for (let i = 0; i < children.length - 1; i++) {
+    for (let i = 0; i < length; i++) {
         const child = children[i] as ReactElement<SwitchCaseProps, typeof SwitchCase>;
         if (child.type !== SwitchCase) {
             throw new Error('All direct children elements of Switch must be of type SwitchCase or SwitchCaseDefault');
