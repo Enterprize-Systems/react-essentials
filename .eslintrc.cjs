@@ -13,7 +13,7 @@ module.exports = {
         'comma-dangle': ['error', 'never'],
         'curly': ['error', 'all'],
         'eol-last': ['error', 'always'],
-        'indent': ['error', 4],
+        'indent': ['error', 'tab'],
         'nonblock-statement-body-position': ['error', 'below'],
         'quotes': ['error', 'single'],
         'semi': ['error', 'always'],

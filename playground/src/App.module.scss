@@ -1,98 +1,100 @@
 .pageContainer {
-    width: 60rem;
-    margin: 0 auto;
+	width: 60rem;
+	margin: 0 auto;
 
-    .header {
-        text-align: center;
-        padding: 1rem;
-    }
+	.header {
+		text-align: center;
+		padding: 1rem;
+	}
 
-    .content {
-        padding: 1rem;
+	.content {
+		padding: 1rem;
 
-        article {
-            &:not(:first-child) {
-                margin-top: 1rem;
-            }
+		article {
+			&:not(:first-child) {
+				margin-top: 1rem;
+			}
 
-            &:not(:last-child) {
-                margin-bottom: 1rem;
-            }
-        }
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
 
-        .articleHeader {
-            padding: 1rem 0;
-        }
+		.articleHeader {
+			padding: 1rem 0;
+		}
 
-        hr {
-            border: none;
-            border-top: Max(1px, 0.0625rem) solid #BDBDBD;
-        }
+		hr {
+			border: none;
+			border-top: Max(1px, 0.0625rem) solid #BDBDBD;
+		}
 
-        code {
-            font-family: 'Source Code Pro', 'Consolas', 'monospace';
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #616161;
-            background-color: #EEEEEE;
-            padding: 0.125rem;
-            border-radius: Max(3px, 0.1875rem);
-        }
+		code {
+			font-family: 'Source Code Pro', 'Consolas', 'monospace';
+			font-size: 0.8rem;
+			font-weight: bold;
+			color: #616161;
+			background-color: #EEEEEE;
+			padding: 0.125rem;
+			border-radius: Max(3px, 0.1875rem);
+		}
 
-        .description {
-            padding: 0.5rem 0;
-        }
+		.description {
+			padding: 0.5rem 0;
+		}
 
-        .props {
-            padding: 0.5rem 0;
+		.props {
+			padding: 0.5rem 0;
 
-            .required {
-                color: red;
-            }
+			.required {
+				color: red;
+			}
 
-            .thProp {
-                min-width: 10rem;
-            }
+			.thProp {
+				min-width: 10rem;
+			}
 
-            .thDefault {
-                min-width: 10rem;
-            }
+			.thDefault {
+				min-width: 10rem;
+			}
 
-            table, th, td {
-                border: Max(1px, 0.0625rem) solid #BDBDBD;
-                border-collapse: collapse;
-            }
+			table, th, td {
+				border: Max(1px, 0.0625rem) solid #BDBDBD;
+				border-collapse: collapse;
+			}
 
-            table {
-                width: 100%;
-            }
+			table {
+				width: 100%;
+			}
 
-            th, td {
-                padding: 0.5rem;
-            }
-        }
+			th, td {
+				padding: 0.5rem;
+			}
+		}
 
-        .example {
-            padding: 0.5rem 0;
-        }
+		.example {
+			padding: 0.5rem 0;
+		}
 
-        ul > li {
-            margin-left: 1.5rem;
-            list-style: disc;
-        }
+		ul > li {
+			margin-left: 1.5rem;
+			list-style: disc;
+		}
 
-        .baseClass {
-            font-size: 2rem;
-        }
+		.baseClass {
+			font-size: 2rem;
+		}
 
-        .class1 {
-            color: red;
-        }
-        .class2 {
-            color: green;
-        }
-        .class3 {
-            color: blue;
-        }
-    }
+		.class1 {
+			color: red;
+		}
+
+		.class2 {
+			color: green;
+		}
+
+		.class3 {
+			color: blue;
+		}
+	}
 }

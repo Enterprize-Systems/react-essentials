@@ -1,12 +1,14 @@
-# JetBrains IDEs
-.idea/*
+/tmp
+/out-tsc
 
-# Node Modules
-node_modules/*
-lib/node_modules/*
-playground/node_modules/*
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.pnp
+.pnp.js
 
-# Compiled
-dist/*
-lib/dist/*
-playground/dist/*
+.vscode/*
+.DS_Store
+.idea
+lib/dist

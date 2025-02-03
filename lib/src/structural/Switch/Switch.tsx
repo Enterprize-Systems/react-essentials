@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import { SwitchCase, SwitchCaseProps } from './SwitchCase';
 import { SwitchCaseDefault } from './SwitchCaseDefault';
@@ -23,80 +23,66 @@ import { SwitchCaseDefault } from './SwitchCaseDefault';
  *  </Switch>
  *  @since 1.0.0
  */
-export const Switch: FC<SwitchProps> = props => {
+export function Switch({ expression, children }: SwitchProps) {
 
-    //#region Initialization
-    /**
-     * {@link SwitchProps.expression}
-     */
-    const expression = props.expression;
-    /**
-     * {@link SwitchProps.children}
-     */
-    const children = Array.isArray(props.children) ? props.children : [props.children];
-    //#endregion
+	//#region Render
+	//if no children, nothing to render
+	if ((Array.isArray(children) && children.length === 0) || children == undefined) {
+		return null;
+	}
+	
+	const childrenAsArray = Array.isArray(children) ? children : [children];
 
-    //#region Render
-    //if no children, nothing to render
-    if (children.length === 0) {
-        return null;
-    }
+	// If a {@link SwitchCaseDefault} is defined and no {@link SwitchCase} is match, will render it/
+	const switchCaseDefaultToRender: null | ReactElement<void, typeof SwitchCaseDefault> =
+		childrenAsArray[childrenAsArray.length - 1]!.type === SwitchCaseDefault
+			? childrenAsArray[childrenAsArray.length - 1] as ReactElement<void, typeof SwitchCaseDefault>
+			: null;
+	// If a {@link SwitchCase} condition matches, will render it.
+	let switchCaseToRender: null | ReactElement<SwitchCaseProps, typeof SwitchCase> = null;
 
-    // If a {@link SwitchCaseDefault} is defined and no {@link SwitchCase} is match, will render it/
-    const switchCaseDefaultToRender: null | ReactElement<void, typeof SwitchCaseDefault> =
-        children[children.length - 1]!.type === SwitchCaseDefault
-            ? children[children.length - 1] as ReactElement<void, typeof SwitchCaseDefault>
-            : null;
-     // If a {@link SwitchCase} condition matches, will render it.
-    let switchCaseToRender: null | ReactElement<SwitchCaseProps, typeof SwitchCase> = null;
+	const length: number = switchCaseDefaultToRender != null
+		? childrenAsArray.length - 1
+		: childrenAsArray.length;
 
-    const length: number = switchCaseToRender != null
-        ? children.length - 1
-        : children.length;
+	switchCaseLoop:
+	for (let i = 0; i < length; i++) {
+		const child = childrenAsArray[i] as ReactElement<SwitchCaseProps, typeof SwitchCase>;
+		if (child.type !== SwitchCase) {
+			throw new Error(
+				'All direct children elements of Switch must be of type SwitchCase or SwitchCaseDefault');
+		}
 
-    switchCaseLoop:
-    for (let i = 0; i < length; i++) {
-        const child = children[i] as ReactElement<SwitchCaseProps, typeof SwitchCase>;
-        if (child.type !== SwitchCase) {
-            throw new Error('All direct children elements of Switch must be of type SwitchCase or SwitchCaseDefault');
-        }
+		if (Array.isArray(child.props.when)) {
+			for (const childWhen of child.props.when) {
+				if (childWhen === expression) {
+					switchCaseToRender = child;
+					break switchCaseLoop;
+				}
+			}
+		}
+		else if (child.props.when === expression) {
+			switchCaseToRender = child;
+			break;
+		}
+	}
 
-        if (Array.isArray(child.props.when)) {
-            for (const childWhen of child.props.when) {
-                if (childWhen === expression) {
-                    switchCaseToRender = child;
-                    break switchCaseLoop;
-                }
-            }
-        }
-        else if (child.props.when === expression) {
-            switchCaseToRender = child;
-            break;
-        }
-    }
-
-    return (
-        <Fragment>
-            {switchCaseToRender != null
-                ? switchCaseToRender
-                : switchCaseDefaultToRender}
-        </Fragment>
-    );
-    //#endregion
-};
+	return <>{switchCaseToRender != null ? switchCaseToRender : switchCaseDefaultToRender}</>;
+	//#endregion
+}
 
 /**
  * {@link Switch} component properties interface definition.
  * @since 1.0.0
  */
 export interface SwitchProps {
-    /**
-     * Expression to evaluate.
-     */
-    expression: any;
-    /**
-     * List of {@link SwitchCase} or {@link SwitchCaseDefault} child/children.
-     */
-    children?: ReactElement<SwitchCaseProps, typeof SwitchCase> | ReactElement<void, typeof SwitchCaseDefault>
-        | [...ReactElement<SwitchCaseProps, typeof SwitchCase>[], ReactElement<void, typeof SwitchCaseDefault>]
+	/**
+	 * Expression to evaluate.
+	 */
+	expression: any;
+	/**
+	 * List of {@link SwitchCase} or {@link SwitchCaseDefault} child/children.
+	 */
+	children?: ReactElement<SwitchCaseProps, typeof SwitchCase> | ReactElement<void, typeof SwitchCaseDefault>
+		| [...ReactElement<SwitchCaseProps, typeof SwitchCase>[], ReactElement<void, typeof SwitchCaseDefault>]
 }
